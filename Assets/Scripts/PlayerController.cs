@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         // Debug.Log(other.gameObject.tag.ToString());
         if(other.gameObject.tag == "Obstacle"){
+             GameObject.Find("GameManager").GetComponent<GameManager>().HideObstacle();
             SceneManager.LoadScene("GameScene");
         }
     }

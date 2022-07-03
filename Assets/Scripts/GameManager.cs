@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     IEnumerator SpwanObstacles(){
         while (true)
         {
-            float waitTime = Random.Range(0.5f, 2f);
+            float waitTime = Random.Range(0.7f, 2f);
             yield return new WaitForSeconds(waitTime);
 
             Instantiate(obstacle, spwanPoint.position, Quaternion.identity);
@@ -38,8 +38,12 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         player.SetActive(true);
+        obstacle.SetActive(true);
         playButton.SetActive(false);
         StartCoroutine("SpwanObstacles");
         InvokeRepeating("ScoreUp", 2f, 1f);
+    }
+    public void HideObstacle(){
+        obstacle.SetActive(false);
     }
 }
